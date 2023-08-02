@@ -6,7 +6,7 @@ namespace HelloWorld
     class HelloWorld
     {
 
-        static void Main(string[] args)
+        static void NotMain(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Green;
             Console.BackgroundColor = ConsoleColor.Black;
@@ -133,7 +133,7 @@ namespace HelloWorld
 
 
             Console.Read();
-        }
+        }//Change from "NotMain" to "Main" to use
 
         //Methods
         public static void WriteSomething()
@@ -420,4 +420,5 @@ namespace HelloWorld
             }
         }
     }
+
 }
