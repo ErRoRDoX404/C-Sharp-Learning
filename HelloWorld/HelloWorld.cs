@@ -56,67 +56,68 @@ namespace HelloWorld
             //-----CONSOLE PRINTS-----
 
             //String Write
-            Console.WriteLine("Greetings: " + userInput);
-            Console.WriteLine(greeting);
-            Console.WriteLine(uppercaseGreeting);
-            Console.WriteLine(lowercaseGreeting);
+            Console.WriteLine("Greetings, " + userInput);
+            // Console.WriteLine(greeting);
+            // Console.WriteLine(uppercaseGreeting);
+            // Console.WriteLine(lowercaseGreeting);
 
             //Int, Double, Float Write
-            Console.WriteLine("\nIntegers:");
-            Console.WriteLine(num1 + " + " + num2 + " = " + num3);
-            Console.WriteLine("\nDoubles:");
-            Console.WriteLine(d1 + " + " + d2 + " = " + d3);
-            Console.WriteLine("\nIntegers + Double:");
-            Console.WriteLine(num1 + " + " + d2 + " = " + num1_and_d2);
-            Console.WriteLine("\nFloats:");
-            Console.WriteLine(f1 + " + " + f2 + " = " + f3);
+            // Console.WriteLine("\nIntegers:");
+            // Console.WriteLine(num1 + " + " + num2 + " = " + num3);
+            // Console.WriteLine("\nDoubles:");
+            // Console.WriteLine(d1 + " + " + d2 + " = " + d3);
+            // Console.WriteLine("\nIntegers + Double:");
+            // Console.WriteLine(num1 + " + " + d2 + " = " + num1_and_d2);
+            // Console.WriteLine("\nFloats:");
+            // Console.WriteLine(f1 + " + " + f2 + " = " + f3);
 
             //Cast - Explicit Conversion Write
-            castInt = (int)d2;
-            Console.WriteLine("\nCasts:");
-            Console.WriteLine(castInt);
+            // castInt = (int)d2;
+            // Console.WriteLine("\nCasts:");
+            // Console.WriteLine(castInt);
 
             //Type Conversion Write
-            string convertDoubleToString = d2.ToString(); // "1.2345678912345678"
-            string convertFloatToString = f1.ToString(); // "3.5"
-            string convertBooleanToString = skyIsBlue.ToString();
+            // string convertDoubleToString = d2.ToString(); // "1.2345678912345678"
+            // string convertFloatToString = f1.ToString(); // "3.5"
+            // string convertBooleanToString = skyIsBlue.ToString();
 
-            int firstStringToInt = Int32.Parse(stringFirstNumber);
-            int secondStringToInt = Int32.Parse(stringSecondNumber);
-            int resultInt = firstStringToInt + secondStringToInt;
+            // int firstStringToInt = Int32.Parse(stringFirstNumber);
+            // int secondStringToInt = Int32.Parse(stringSecondNumber);
+            // int resultInt = firstStringToInt + secondStringToInt;
 
-            Console.WriteLine("\nType Conversions:");
-            Console.WriteLine(convertDoubleToString);
-            Console.WriteLine(convertFloatToString);
-            Console.WriteLine(convertBooleanToString);
-            Console.WriteLine(firstStringToInt + " + " + secondStringToInt + " = " + resultInt);
+            // Console.WriteLine("\nType Conversions:");
+            // Console.WriteLine(convertDoubleToString);
+            // Console.WriteLine(convertFloatToString);
+            // Console.WriteLine(convertBooleanToString);
+            // Console.WriteLine(firstStringToInt + " + " + secondStringToInt + " = " + resultInt);
 
             //Constant Write
-            Console.WriteLine("\nMy birthday will always be on the: {0}", birthdayDate, "\n");
+            // Console.WriteLine("\nMy birthday will always be on the: {0}", birthdayDate, "\n");
 
 
             //Method calling
-            WriteSomething();
-            WriteSomethingSpecific("\nArgument for a method\n");
+            // WriteSomething();
+            // WriteSomethingSpecific("\nArgument for a method\n");
 
             //Addition method write
-            Console.WriteLine("\nMethods:");
-            Console.WriteLine(num1 + " + " + num2 + " = " + Addition(num1,num2)); // 10 + 15 = 25
-            Console.WriteLine(Addition(Addition(num1, num1), Addition(num2, num2))); // (10 + 10) + (15 + 15) = 50
+            // Console.WriteLine("\nMethods:");
+            // Console.WriteLine(num1 + " + " + num2 + " = " + Addition(num1,num2)); // 10 + 15 = 25
+            // Console.WriteLine(Addition(Addition(num1, num1), Addition(num2, num2))); // (10 + 10) + (15 + 15) = 50
 
             //Multiply method write
-            Console.WriteLine(num1 + " x " + num2 + " = " + Multiply(num1, num2)); // 10 x 15 = 150
-            Console.WriteLine(Multiply(Multiply(num1, num2), Multiply(num1, num2))); // (10 x 15) x (10 x 15) = 22500
+            // Console.WriteLine(num1 + " x " + num2 + " = " + Multiply(num1, num2)); // 10 x 15 = 150
+            // Console.WriteLine(Multiply(Multiply(num1, num2), Multiply(num1, num2))); // (10 x 15) x (10 x 15) = 22500
 
             //Division method write
-            Console.WriteLine(num1 + " / " + num2 + " = " + Divide(num1, num2)); // 10 x 15 = 150
-            Console.WriteLine(Divide(Divide(num1, num2), Divide(num1, num2))); // (10 x 15) x (10 x 15) = 22500
+            // Console.WriteLine(num1 + " / " + num2 + " = " + Divide(num1, num2)); // 10 x 15 = 150
+            // Console.WriteLine(Divide(Divide(num1, num2), Divide(num1, num2))); // (10 x 15) x (10 x 15) = 22500
 
             // UserCalculate(); // With validation
 
             // UserDivide(); // With validation
 
-            Operators();
+            // Operators(); // Displays outputs from various opertaors
+            Variables();
 
             Console.Read();
         }
@@ -159,6 +160,7 @@ namespace HelloWorld
             while (i < 1)
             {
                 Console.WriteLine("\nAdd two numbers together (!!! ONLY ENTER NUMBERS !!!)"); //No validation so error will appear with any input other than numbers
+                Console.WriteLine("---------------");
                 Console.WriteLine("Please enter your first number: ");
                 string userNumberOne = Console.ReadLine();
 
@@ -198,6 +200,7 @@ namespace HelloWorld
             while (i < 1)
             {
                 Console.WriteLine("\nDivide with two numbers (!!! ONLY ENTER NUMBERS !!!)"); //No validation so error will appear with any input other than numbers
+                Console.WriteLine("---------------");
                 Console.WriteLine("Please enter your first number: ");
                 string userNumberOne = Console.ReadLine();
 
@@ -245,6 +248,7 @@ namespace HelloWorld
             int num3;
 
             Console.WriteLine("\nOperators: ");
+            Console.WriteLine("---------------");
             Console.WriteLine("num1 is {0}", num1);
             Console.WriteLine("num2 is {0}", num2);
 
@@ -273,6 +277,37 @@ namespace HelloWorld
 
             //pre-Decrement
             Console.WriteLine("num is {0}", --num); // Removes 1 from num = 0
+
+            // AND Operator &&
+            // OR Operator ||
+            // Greater & Lower Operators >/<
+
+        }
+
+        //If Statments
+        public static void Variables()
+        {
+            Console.WriteLine("\nIF Statements");
+            Console.WriteLine("---------------");
+            Console.WriteLine("Please enter the temperature outside: ");
+            string userTemp = Console.ReadLine();
+            int userTempConv = int.Parse(userTemp);
+
+            if (userTempConv < 10)
+            {
+                Console.WriteLine("Wow, it's sure is cold out there, grab a coat");
+            }
+
+            if (userTempConv < 20 || userTempConv > 10 || userTempConv == 20)
+            {
+                Console.WriteLine("Not too warm, not too cold, no need to grab a coat or shorts");
+            }
+
+            if (userTempConv > 20)
+            {
+                Console.WriteLine("Damn, it's hot outside, maybe wear some shorts"); 
+            }
+
         }
 
     }
