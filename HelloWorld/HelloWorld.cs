@@ -56,7 +56,8 @@ namespace HelloWorld
             //-----CONSOLE PRINTS-----
 
             //String Write
-            Console.WriteLine("Greetings, " + userInput);
+            Console.WriteLine("Greetings, {0}\n", userInput);
+            Console.WriteLine("Make sure to uncomment methods and Console.WriteLine(s)\n");
             // Console.WriteLine(greeting);
             // Console.WriteLine(uppercaseGreeting);
             // Console.WriteLine(lowercaseGreeting);
@@ -117,7 +118,19 @@ namespace HelloWorld
             // UserDivide(); // With validation
 
             // Operators(); // Displays outputs from various opertaors
-            Variables();
+
+            // Variables();
+
+            // NestedIF();
+
+            // ForLoop();
+
+            // DoWhileLoop();
+
+            // WhileLoop();
+
+            // BreakContinue();
+
 
             Console.Read();
         }
@@ -284,31 +297,127 @@ namespace HelloWorld
 
         }
 
-        //If Statments
+        //IF Statments
         public static void Variables()
         {
             Console.WriteLine("\nIF Statements");
             Console.WriteLine("---------------");
             Console.WriteLine("Please enter the temperature outside: ");
             string userTemp = Console.ReadLine();
-            int userTempConv = int.Parse(userTemp);
+            int userTempConv;
+            int parseNumber;
+
+            if(int.TryParse(userTemp, out parseNumber))
+            {
+                userTempConv = parseNumber; // Attempts to parse user's input
+            }
+            else // Used when user does not enter a valid value
+            {
+                userTempConv = 0;
+                Console.WriteLine("Invalid value was entered, procceded with default temp, 0 degrees");
+            }
 
             if (userTempConv < 10)
             {
                 Console.WriteLine("Wow, it's sure is cold out there, grab a coat");
             }
 
-            if (userTempConv < 20 || userTempConv > 10 || userTempConv == 20)
+            else if (userTempConv < 20 || userTempConv > 10 || userTempConv == 20)
             {
                 Console.WriteLine("Not too warm, not too cold, no need to grab a coat or shorts");
             }
 
-            if (userTempConv > 20)
+            else if (userTempConv > 20)
             {
                 Console.WriteLine("Damn, it's hot outside, maybe wear some shorts"); 
             }
 
+            else
+            {
+                Console.WriteLine("I'm not too sure about the temperature...");
+            }
+
         }
 
+        //Nested IF statements
+        public static void NestedIF()
+        {
+            bool isAdmin = false;
+            bool isRegistered = true;
+
+            string userName = "";
+
+            Console.WriteLine("\nPlease enter your username: ");
+            userName = Console.ReadLine();
+
+            if (isRegistered && userName != "" && userName.Equals("admin"))
+            {
+                Console.WriteLine("Hi there, registered user");
+                Console.WriteLine("Hi there, " + userName);
+                Console.WriteLine("Hi there, Admin");          
+            }
+
+            if (isAdmin || isRegistered)
+            {
+                Console.WriteLine("You are logged in.");
+            }
+        }
+
+        //For Loop
+        public static void ForLoop()
+        {
+            for (int counter = 1; counter < 21; counter+=2)
+            {
+                Console.WriteLine(counter);
+            }
+            Console.WriteLine("For loop complete...");
+        }
+
+        //Do While Loop
+        public static void DoWhileLoop()
+        {
+            int counter = 1;
+            int lengthOfText = 0;
+            string wholeText = "";
+            do
+            {
+                Console.WriteLine("\nEnter in any word: ");
+                string userWord = Console.ReadLine();
+                int currentLength = userWord.Length;
+                lengthOfText += currentLength;
+                wholeText += userWord;
+
+            } while (lengthOfText < 20);
+            Console.WriteLine("While loop ended, combined words: " + wholeText);
+        }
+
+        //While Loop
+        public static void WhileLoop()
+        {
+            int counter = 0;
+            string enteredText = "";
+            Console.WriteLine("Press Enter to increase counter, enter any character to stop counting");
+            while (enteredText.Equals(""))
+            {
+                enteredText = Console.ReadLine();
+                counter++;
+                Console.WriteLine("Current counter value: {0}", counter);
+            }
+            Console.WriteLine("Counter Value is {0}. Ending while loop", counter);
+        }
+
+        //Breaks & Continues
+        public static void BreakContinue()
+        {
+            for(int counter = 0; counter < 10; counter++)
+            {
+                if (counter == 5)
+                {
+                    Console.WriteLine("{0} <--- Number found", counter);
+                    continue;
+                }
+                Console.WriteLine(counter);
+            }
+        }
     }
 }
