@@ -1,4 +1,7 @@
-﻿namespace HelloWorld
+﻿using System.Diagnostics.Metrics;
+using System.Transactions;
+
+namespace HelloWorld
 {
     class HelloWorld
     {
@@ -35,6 +38,10 @@
             string stringFirstNumber = "15";
             string stringSecondNumber = "10";
 
+            //Input Strings
+            Console.WriteLine("Please enter your name: ");
+            string userInput = Console.ReadLine();
+
             //Upper case
             string uppercaseGreeting = greeting.ToUpper();
             //Lower Case
@@ -49,7 +56,7 @@
             //-----CONSOLE PRINTS-----
 
             //String Write
-            Console.WriteLine("Greetings:");
+            Console.WriteLine("Greetings: " + userInput);
             Console.WriteLine(greeting);
             Console.WriteLine(uppercaseGreeting);
             Console.WriteLine(lowercaseGreeting);
@@ -85,9 +92,178 @@
             Console.WriteLine(firstStringToInt + " + " + secondStringToInt + " = " + resultInt);
 
             //Constant Write
-            Console.WriteLine("\nMy birthday will always be on the: {0}", birthdayDate);
+            Console.WriteLine("\nMy birthday will always be on the: {0}", birthdayDate, "\n");
+
+
+            //Method calling
+            WriteSomething();
+            WriteSomethingSpecific("\nArgument for a method\n");
+
+            //Addition method write
+            Console.WriteLine("\nMethods:");
+            Console.WriteLine(num1 + " + " + num2 + " = " + Addition(num1,num2)); // 10 + 15 = 25
+            Console.WriteLine(Addition(Addition(num1, num1), Addition(num2, num2))); // (10 + 10) + (15 + 15) = 50
+
+            //Multiply method write
+            Console.WriteLine(num1 + " x " + num2 + " = " + Multiply(num1, num2)); // 10 x 15 = 150
+            Console.WriteLine(Multiply(Multiply(num1, num2), Multiply(num1, num2))); // (10 x 15) x (10 x 15) = 22500
+
+            //Division method write
+            Console.WriteLine(num1 + " / " + num2 + " = " + Divide(num1, num2)); // 10 x 15 = 150
+            Console.WriteLine(Divide(Divide(num1, num2), Divide(num1, num2))); // (10 x 15) x (10 x 15) = 22500
+
+            // UserCalculate(); // With validation
+
+            // UserDivide(); // With validation
+
+            Operators();
 
             Console.Read();
         }
+
+        //Methods
+        public static void WriteSomething()
+        {
+            Console.WriteLine("\nI am called from a method");
+        }
+
+        //Method with Parameter
+        public static void WriteSomethingSpecific(string myText)
+        {
+            Console.WriteLine(myText);
+        }
+
+        //Method with two parameters
+        public static int Addition(int num1, int num2)
+        {
+            return num1 + num2; //Num1 = 10 , Num2 = 15
+        }
+
+        //Methods with two parameters
+        public static int Multiply(int num1, int num2)
+        {
+            return num1 * num2; //Num1 = 10 , Num2 = 15
+        }
+
+        public static double Divide(double num1, double num2)
+        {
+            return num1 / num2; //Num1 = 10 , Num2 = 15
+        }
+
+        //User input method
+        public static int UserCalculate()
+        {
+            int i = 0;
+
+            //Asking the user to add two numbers together
+            while (i < 1)
+            {
+                Console.WriteLine("\nAdd two numbers together (!!! ONLY ENTER NUMBERS !!!)"); //No validation so error will appear with any input other than numbers
+                Console.WriteLine("Please enter your first number: ");
+                string userNumberOne = Console.ReadLine();
+
+                Console.WriteLine("Please enter your second number: ");
+                string userNumberTwo = Console.ReadLine();
+
+                try
+                {
+                    int userAdditionResult = Addition(Int32.Parse(userNumberOne), Int32.Parse(userNumberTwo));
+                    Console.WriteLine(userNumberOne + " + " + userNumberTwo + " = " + userAdditionResult);
+                    i = 1;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Format exception, Please make sure you only enter numbers! (Int Type)");
+                    i = 0;
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Overflow exception, user inputs were either too long or too short for Int32");
+                    i = 0;
+                }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("Null exception, the user's input was empty (Null)");
+                    i = 0;
+                }
+            }
+            return 0;
+        }
+
+        public static double UserDivide()
+        {
+            int i = 0;
+
+            //Asking the user to divide two numbers
+            while (i < 1)
+            {
+                Console.WriteLine("\nDivide with two numbers (!!! ONLY ENTER NUMBERS !!!)"); //No validation so error will appear with any input other than numbers
+                Console.WriteLine("Please enter your first number: ");
+                string userNumberOne = Console.ReadLine();
+
+                Console.WriteLine("Please enter your second number: ");
+                string userNumberTwo = Console.ReadLine();
+
+                try
+                {
+                    double userNumberOneConverted = Double.Parse(userNumberOne);
+                    double userNumberTwoConverted = Double.Parse(userNumberTwo);
+                    double userDivisionResult = Divide(Double.Parse(userNumberOne), Double.Parse(userNumberTwo));
+                    Console.WriteLine("Your first number was " + userNumberOneConverted + " and the second number was " + userNumberTwoConverted);
+                    Console.WriteLine(userNumberOne + " / " + userNumberTwo + " = " + userDivisionResult);
+                    i = 1;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Format exception, Please make sure you only enter numbers! (Int Type)");
+                    i = 0;
+                }
+                catch (OverflowException)
+                {
+                    Console.WriteLine("Overflow exception, user inputs were either too long or too short for Int32");
+                    i = 0;
+                }
+                catch (ArgumentNullException)
+                {
+                    Console.WriteLine("Null exception, the user's input was empty (Null)");
+                    i = 0;
+                }
+                catch (DivideByZeroException)
+                {
+                    Console.WriteLine("Divide By Zero Exception, the user's input included a zero (undefined result)");
+                }
+            }
+            return 0;
+        }
+
+        //Operators
+        public static void Operators()
+        {
+
+            int num1 = 5;
+            int num2 = 3;
+            int num3;
+
+            Console.WriteLine("\nOperators: ");
+            Console.WriteLine("num1 is {0}", num1);
+            Console.WriteLine("num2 is {0}", num2);
+
+            //unary operators
+            num3 = -num1;
+            Console.WriteLine("num3 is {0}", num3); // Returns -5
+
+            bool isNight = true;
+            Console.WriteLine("Is it night time?: {0}", !isNight); // Returns false
+
+            //increment operators
+            int num = 0;
+            num++;
+            Console.WriteLine("num is {0}", num); // Adds 1 to num = 1
+            Console.WriteLine("num is {0}", num++); // Adds 1 to num = 2
+
+            //pre-increment
+            Console.WriteLine("num is {0}", ++num); // Adds 1 to num = 3
+        }
+
     }
 }
