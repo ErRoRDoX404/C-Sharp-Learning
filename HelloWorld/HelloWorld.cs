@@ -256,6 +256,7 @@ namespace HelloWorld
             Console.WriteLine("Is it night time?: {0}", !isNight); // Returns false
 
             //increment operators
+            Console.WriteLine("\nIncrement Operators: ");
             int num = 0;
             num++;
             Console.WriteLine("num is {0}", num); // Adds 1 to num = 1
@@ -263,6 +264,15 @@ namespace HelloWorld
 
             //pre-increment
             Console.WriteLine("num is {0}", ++num); // Adds 1 to num = 3
+
+            //Decrement operators
+            Console.WriteLine("\nDecrement Operators: ");
+            num--;
+            Console.WriteLine("num is {0}", num); // Removes 1 from num = 2
+            Console.WriteLine("num is {0}", num--); // Removes 1 from num = 1
+
+            //pre-Decrement
+            Console.WriteLine("num is {0}", --num); // Removes 1 from num = 0
         }
 
     }
