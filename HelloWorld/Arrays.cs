@@ -12,9 +12,9 @@ namespace HelloWorld
         {
             string[] friends = { "Mike", "Harvey", "Jessica", "Louis", "Donna" };
 
-            for(int j = 0; j < 5;j++)
+            foreach (string friend in friends)
             {
-                Console.WriteLine("Hello {0}", friends[j]);
+                Console.WriteLine("Hello {0}", friend);
             }
 
             Console.ReadKey();
